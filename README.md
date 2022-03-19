@@ -2,7 +2,9 @@
 
 Tiny Theaters Assessment
 Tasks
-TODO Add time estimates to each of the top-level tasks
+TODO 
+Add time estimates to each of the top-level tasks
+
  Create a new GitHub repo for this assessment (#.# hours)
  Update the README with the contents from this file
  Add the instruction team as collaborators
