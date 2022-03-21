@@ -8,6 +8,8 @@ where show_date >= 2021-10-01  -- w/o limit - this was bringing back earlier sho
 order by show_date desc
 limit 3;   -- this is not a good solution. I knew there were no shows in 2022, and I knew that there were only 3 shows.
 -- it doesn't want to work with:  where show_date between 2021-10-01 and 2021-12-31;
+-- I believe that something might be amiss with my datetime variable type in my schema?? I didn't want to
+-- try and change it, and mess things up. Actually, I DID try that, and it messed things up. Had to redo.
 
 
 --  2. List customers without duplication.
@@ -31,7 +33,8 @@ limit 3;
 select distinct c.first_name, c.last_name, s.show_title, s.show_date
 from customer c
 join ticket t using (customer_id)
-join `show` s using (show_id);
+join `show` s using (show_id)
+order by c.last_name;
 
 --  6. List customer, show, theater, and seat number in one query.
 select concat(c.first_name, " ", c.last_name) customer, s.show_title `show`, th.name theatre, t.seat seat_number
@@ -40,6 +43,7 @@ join ticket t using (customer_id)
 join `show` s using (show_id)
 join theatre th using (theatre_id)
 order by c.last_name desc;
+
 
 --  7. Find customers without an address. 
 select * from customer
@@ -54,12 +58,13 @@ select c.first_name, c.last_name, c.address, c.phone, c.email,  -- THIS ONE WORK
 from customer c
 join ticket t using (customer_id)
 join `show` s using (show_id)
-join theatre th using (theatre_id);
+join theatre th using (theatre_id)
+order by c.last_name;
 
 --  9. Count total tickets purchased per customer. 
 -- *****THis got screwed up as I tried to change things to make #12 work.
 -- it now had added ALL THE TICKETS_IDs for ALL THE TIMES I've loaded the data...even though I deleted first.
-
+-- ****************MY TICKET IDs ARE MESSED UP - HOW CAN I RE-SET TICKET_ID IF IT IS A PRIMARY KEY?**********
 -- select 
 -- sum(ticket_id) total_tickets_sold,
 -- concat(c.first_name, " ", c.last_name) customer
@@ -75,7 +80,7 @@ concat(c.first_name, " ", c.last_name) customer
 from ticket t
 join customer c using (customer_id)
 group by concat(c.first_name, " ", c.last_name)
-order by count(seat), concat(c.first_name, " ", c.last_name) desc;
+order by count(seat) desc, concat(c.first_name, " ", c.last_name);
 
     
 -- 10. Calculate the total revenue per show based on tickets sold.
