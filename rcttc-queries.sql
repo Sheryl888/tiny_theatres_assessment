@@ -20,11 +20,11 @@ select *
 from customer c 
 where c.email NOT like '%.com';
 
---  4. Find the three cheapest shows. 
-select distinct s.show_title, t.ticket_price
+--  4. Find the three cheapest shows. -- ***********where do I set the currency format/round to 2 digits past decimal******************************
+select distinct s.show_title, t.ticket_price        -- is it set in the database, schema or with the querie?
 from ticket t
 join `show` s using (show_id)
-where (select min(t.ticket_price) 
+where (select truncate(min(t.ticket_price),2)
 from ticket)
 order by t.ticket_price asc
 limit 3;
@@ -86,7 +86,7 @@ order by count(seat) desc, concat(c.first_name, " ", c.last_name);
 -- 10. Calculate the total revenue per show based on tickets sold.
 select
 s.show_title as `show`,
-sum(t.ticket_price) total_ticket_revenue  -- if ticket_price is a double, why so many after the decimal?
+truncate(sum(t.ticket_price),2) total_ticket_revenue  -- if ticket_price is a double, why so many after the decimal?
 from `show` s
 join ticket t using (show_id)
 group by s.show_title;
@@ -94,7 +94,7 @@ group by s.show_title;
 -- 11. Calculate the total revenue per theater based on tickets sold.
 select 
 th.name as theatre, 
-sum(t.ticket_price) total_ticket_revenue  -- if ticket_price is a double, why so many after the decimal?
+truncate(sum(t.ticket_price),2) total_ticket_revenue  -- if ticket_price is a double, why so many after the decimal?
 from theatre th
 join `show` s using (theatre_id)
 join ticket t using (show_id)
@@ -104,9 +104,12 @@ group by th.name;
 -- 12. Who is the biggest supporter of RCTTC? Who spent the most in 2021?  Should be Jammie Swindles 220.00
 select 
 concat(c.first_name, " ", c.last_name) customer, 
-sum(t.ticket_price) total_cost
+truncate(sum(t.ticket_price),2) total_cost
 from customer c
 join ticket t using (customer_id)
+-- where (select max(sum(t.ticket_price)) from ticket t)  ************I don't know how to single out Jamie
 group by concat(c.first_name, " ", c.last_name)
-order by sum(ticket_price) desc;
+order by sum(ticket_price) desc
+limit 1;
+
 
