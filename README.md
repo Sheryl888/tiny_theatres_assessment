@@ -1,4 +1,4 @@
-ï»¿# tiny_theatres_assessment
+ÿþï»¿# tiny_theatres_assessment
 
 Tiny Theaters Assessment
 Tasks
@@ -61,7 +61,7 @@ Make sure that my GitHub repo is updated!
 These steps will be completed over the weekend
 
  Write the DML to make the necessary data updates (as outlined below) (#.# hours)
- Write the required queries (as outlined below) in a file named rcttc-queries.sql (#.#
+ Write the required queries (as outlined belowin a file named rcttc-queries.sql (#.#
 hours)
 
 Make frequent commits to my GitHub repo!
