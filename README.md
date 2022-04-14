@@ -1,10 +1,9 @@
-ÿþï»¿# tiny_theatres_assessment
-
+ï»¿# tiny_theatres_assessment
 Tiny Theaters Assessment
-Tasks
-TODO 
-Add time estimates to each of the top-level tasks
 
+Tasks
+
+TODO Add time estimates to each of the top-level tasks
  Create a new GitHub repo for this assessment (#.# hours)
  Update the README with the contents from this file
  Add the instruction team as collaborators
@@ -12,15 +11,13 @@ Add time estimates to each of the top-level tasks
  Download the provided data (#.# hours)
  Review the provided data (#.# hours)
  Identify any research that I need to do (#.# hours)
- 
 These steps can be done in class on Friday
-
  Design initial database schema (#.# hours)
 
  Identify the tables that are needed
- 
  For each table...
 Define a primary key
+
 Define its columns (name, data type, and nullability)
  Identify the relationships between tables
  
@@ -42,26 +39,22 @@ Hand-written (must be well-organized and legible!!)
 Make sure that my GitHub repo is updated!
 
 These steps can be done in class on Friday or over the weekend
-
  Write the DDL in a file named rcttc-schema.sql to create the database (#.# hours)
  Drop and create the database
  Create all of the tables
  Import the provided data (#.# hours)
  Import the csv file using Workbench or
  Run the provided SQL script
- 
  Write the DML in a file named rcttc-data.sql to populate the database tables (#.#
 hours)
-
  Write insert-from-select statements to move the data from the denormalized table
 to the normalized tables
 
 Make sure that my GitHub repo is updated!
 
 These steps will be completed over the weekend
-
  Write the DML to make the necessary data updates (as outlined below) (#.# hours)
- Write the required queries (as outlined belowin a file named rcttc-queries.sql (#.#
+ Write the required queries (as outlined below) in a file named rcttc-queries.sql (#.#
 hours)
 
 Make frequent commits to my GitHub repo!
@@ -78,16 +71,14 @@ The Theaters
 The Little Fitz was previously a storage room in the historic Fitzgerald Theater. It has three
 rows of four seats for a total of 12 seats.
 
-The 10 Pin is a cozy little spot tucked behind the lanes of a hipster bowling alley. It's a little
-noisy, but the atmosphere is one-of-a-kind. It has five rows of five seats for a total of 25
-seats.
+The 10 Pin is a cozy little spot tucked behind the lanes of a hipster bowling alley. It's a little noisy, but the atmosphere is one-of-a-kind. It has five rows of five seats for a total of 25 seats.
 
 The Horizon is a rain-or-shine, summer-to-winter backyard theater hosted by the Thao
 family. It has two rows of eight seats for a total of 16 seats.
 
 The Performances
-The 2021 schedule:
 
+The 2021 schedule:
 High School Musical
 Hair
 Dance, Dance Vertical: dance performed on a vertical surface using climbing
@@ -118,12 +109,11 @@ Finalize names, keys, and data types
 Column names in the data file shouldn't necessarily be used as-is
 Likely will need to add columns including, but not limited to, surrogate keys
 The DDL script should be able to be executed over and over
-
 Step 2: DML
 Save all DML in a file named rcttc-data.sql .
 
 Inserts
-3/18/22, 9:06 AM cohort-17/M06-tiny-theaters-assessment-plan.md at main Â· dev10-program/cohort-17
+
 Insert the delimited data into the database
 Use MySQL Workbench's Table Data Import Wizard to import all data into a
 denormalized table
@@ -156,14 +146,17 @@ Delete the customer Liv Egle of Germany. It appears their reservations were an
 elaborate joke.
 
 Step 3: DQL (Data Query Language)
+
 Save all DQL in a file named rcttc-queries.sql .
+
 Complete the following queries.
+
 Find all performances in the last quarter of 2021 (Oct. 1, 2021 - Dec. 31 2021).
 List customers without duplication.
 Find all customers without a .com email address.
 Find the three cheapest shows.
 List customers and the show they're attending with no duplication.
-List customer, show, theater, and seat number in one query
+List customer, show, theater, and seat number in one query.
 Find customers without an address.
 Recreate the spreadsheet data with a single query.
 Count total tickets purchased per customer.
